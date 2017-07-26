@@ -11,9 +11,13 @@
 <body>
   <div class='main'>
     <div class='wrapper'>
-      <video autoplay loop class="video-background" muted plays-inline>
-        <source src="https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/426/9/227132999/798719253.mp4?token=1501097869-0xba958bb293cca53344bd1bb53510578b93b1b605" type="video/mp4">
-      </video>
+      <div class="video-responsive">
+        <video class="video" muted="muted" loop="loop" autoplay="autoplay">
+          <source src="https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/426/9/227132999/798719253.mp4?token=1501097869-0xba958bb293cca53344bd1bb53510578b93b1b605" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <canvas class="canvas"></canvas>
+      </div>
     </div>
     <div class='content'>
       <div class='column'>
@@ -33,6 +37,7 @@
       </div>
     </div>
   </div>
+  <script src="./canvas-video-player.js"></script>
   <script src='./index.js'></script>
 </body>
 </html>
