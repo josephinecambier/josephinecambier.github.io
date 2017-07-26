@@ -12,13 +12,11 @@ button {
   width: 100vw;
   height: 56.25vw;
   position: relative;
-  background-color: gray;
-  background-image: linear-gradient(gray, orange);
-  background: gray;
-  background: linear-gradient(gray, orange);
+  background-color: #131313;
 }
 
-.video-responsive {
+.video-responsive,
+.video {
   position: absolute;
   width: 100vw;
   height: 56.25vw;
