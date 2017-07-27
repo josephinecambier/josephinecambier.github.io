@@ -20,6 +20,11 @@ body {
   height: 56.25vw;
   position: relative;
   background-color: #131313;
+  background: url(./background.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .video-responsive,
