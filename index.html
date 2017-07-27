@@ -15,10 +15,9 @@
   <meta property="og:title" content="Joséphine Cambier">
   <meta property="og:description" content="">
   <meta property="og:image" content="./header.png">
-
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-  <link rel='stylesheet' href='./reset.css'>
-  <link rel='stylesheet' href='./style.css'>
+  <style>
+    html,body{background:black;}
+  </style>
 </head>
 <body>
   <div class='main'>
@@ -49,6 +48,24 @@
       </div>
     </div>
   </div>
+  <noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel='stylesheet' href='./reset.css'>
+    <link rel='stylesheet' href='./style.css'>
+  </noscript>
+  <script>
+    var loadDeferredStyles = function() {
+      var addStylesNode = document.getElementById("deferred-styles");
+      var replacement = document.createElement("div");
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement)
+      addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);
+  </script>
   <script src="./canvas-video-player.js"></script>
   <script src='./index.js'></script>
 </body>
