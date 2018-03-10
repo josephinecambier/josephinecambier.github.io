@@ -101,3 +101,26 @@ $(window).resize(function() {
 $(function() {
   videobgEnlarge();
 });
+
+/**
+ * Preload images
+ */
+var images = [];
+function preload() {
+  for (var i = 0; i < arguments.length; i++) {
+    images[i] = new Image();
+    images[i].src = preload.arguments[i];
+    console.log("images[i]", images[i])
+  }
+}
+
+preload(
+  "./images/yoni/YONI1.png",
+  "./images/yoni/YONI3.png",
+  "./images/yoni/YONI5.png",
+  "./images/melkweg/MG2.png",
+  "./images/melkweg/MG3.png",
+  "./images/melkweg/MG5.jpg",
+  "./images/melkweg/MG6.png",
+  "./images/melkweg/MG7.jpg",
+)
