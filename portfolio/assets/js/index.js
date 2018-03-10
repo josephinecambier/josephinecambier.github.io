@@ -105,22 +105,14 @@ $(function() {
 /**
  * Preload images
  */
-var images = [];
-function preload() {
-  for (var i = 0; i < arguments.length; i++) {
-    images[i] = new Image();
-    images[i].src = preload.arguments[i];
-    console.log("images[i]", images[i])
-  }
-}
+var imageElements = $("*").filter(function() {
+  return $(this).data("backgroundImage") !== undefined;
+});
 
-preload(
-  "./images/yoni/YONI1.png",
-  "./images/yoni/YONI3.png",
-  "./images/yoni/YONI5.png",
-  "./images/melkweg/MG2.png",
-  "./images/melkweg/MG3.png",
-  "./images/melkweg/MG5.jpg",
-  "./images/melkweg/MG6.png",
-  "./images/melkweg/MG7.jpg",
-)
+var images = [];
+for (let index = 0; index < imageElements.length; index++) {
+  var imageElement = imageElements[index];
+  var imageSrc = imageElement.dataset.backgroundImage;
+  images[index] = new Image();
+  images[index].src = imageSrc;
+}
