@@ -75,15 +75,19 @@ function videobgEnlarge() {
   for (let index = 0; index < vimeoVideos.length; index++) {
     var videoElement = vimeoVideos[index];
 
-    var $videoBgAspect = $(videoElement).closest(".videobg-aspect");
     var $videoBgWidth = $(videoElement).closest(".videobg-width");
 
-    console.log($videoBgAspect)
-    var videoAspect = $videoBgAspect.outerHeight() / $videoBgAspect.outerWidth();
+    var theWidth = $(window).width();
+    var theHeight = $(window).height();
 
-    windowAspect = ($(window).height() / $(window).width());
-    if (windowAspect > videoAspect) {
-      $videoBgWidth.width((windowAspect / videoAspect) * 100 + '%');
+    var newWidth = (theHeight * 1.77777778);
+    var newHeight = (theWidth / 1.77777778);
+
+    if ((newHeight > theHeight)) {
+      $videoBgWidth.width((newWidth / theWidth) * 100 + '%');
+    } else if ((newWidth > theWidth)) {
+      /* $videoBgWidth.width((newHeight / theHeight) * 100 + '%'); */
+      $videoBgWidth.width(100 + "%")
     } else {
       $videoBgWidth.width(100 + "%")
     }
