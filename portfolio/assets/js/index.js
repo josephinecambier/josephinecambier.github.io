@@ -3,8 +3,14 @@ Reveal.initialize({
   history: true,
   controls: true,
   progress: true,
+  touch: true,
+  loop: false,
+  showNotes: false,
+  help: true,
 
   transition: 'slide', // none/fade/slide/convex/concave/zoom
+  backgroundTransition: 'slide',
+  transitionSpeed: 'fast',
 
   // More info https://github.com/hakimel/reveal.js#dependencies
   dependencies: [
