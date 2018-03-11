@@ -47,7 +47,7 @@ function loadPlayer(currentVideo, vimeoID) {
 
   var vimeoPlayer = new Vimeo.Player(currentVideo, {
     id: vimeoID,
-    autoplay: true, 
+    autoplay: false, 
     autopause: false,
     background: true,
     loop: true,
@@ -55,11 +55,13 @@ function loadPlayer(currentVideo, vimeoID) {
     byline: false,
   });
 
+  // console.log("vimeoPlayer: ", vimeoPlayer);
   // console.log("vimeoID: ", vimeoID);
 
   vimeoPlayers[vimeoID] = vimeoPlayer;
 
   vimeoPlayer.ready().then(function() {
+    // console.log("vimeoPlayer: ", vimeoPlayer);
     vimeoPlayer.setLoop(true).then(function(loop) {
       loopEnabled = loop;
       console.log("loopEnabled: ", loop); 
@@ -72,6 +74,7 @@ function loadPlayer(currentVideo, vimeoID) {
 function startVideo(vimeoID) {
   videobgEnlarge();
   if (vimeoPlayers[vimeoID]) {
+    // console.log("vimeoPlayers[vimeoID]: ", vimeoPlayers[vimeoID]);
     vimeoPlayers[vimeoID].play();
   }
 }
