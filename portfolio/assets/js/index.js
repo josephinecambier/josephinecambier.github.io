@@ -55,7 +55,7 @@ function loadPlayer(currentVideo, vimeoID) {
     byline: false,
   });
 
-  console.log("vimeoID: ", vimeoID);
+  // console.log("vimeoID: ", vimeoID);
 
   vimeoPlayers[vimeoID] = vimeoPlayer;
 
@@ -70,6 +70,7 @@ function loadPlayer(currentVideo, vimeoID) {
 }
 
 function startVideo(vimeoID) {
+  videobgEnlarge();
   if (vimeoPlayers[vimeoID]) {
     vimeoPlayers[vimeoID].play();
   }
