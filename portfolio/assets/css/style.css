@@ -119,8 +119,8 @@ body .videobg iframe {
   */
 
 body .text-section {
-  padding: 80px !important;
-  padding-top: 60px !important;
+  padding: 40px !important;
+  padding-top: 20px !important;
   max-width: 600px;
   line-height: 1.4 !important;
   letter-spacing: 0.5px;
@@ -201,6 +201,11 @@ body .text-section.hover--blue a:hover {
 }
 
 @media screen and (min-width: 900px) { 
+  body .text-section {
+    padding: 80px !important;
+    padding-top: 60px !important;
+  }
+
   body .text-section .title {
     font-size: calc(42px * 0.8);
   }
