@@ -119,9 +119,9 @@ body .videobg iframe {
   */
 
 body .text-section {
-  padding: 120px !important;
-  padding-top: 80px !important;
-  max-width: 840px;
+  padding: 80px !important;
+  padding-top: 60px !important;
+  max-width: 600px;
   line-height: 1.4 !important;
   letter-spacing: 0.5px;
   text-align: left;
@@ -164,7 +164,7 @@ body .text-section.centered p {
 }
 
 body .text-section .title {
-  font-size: 32px;
+  font-size: calc(42px * 0.7);
   text-align: left !important;
   font-weight: 200 !important;
   letter-spacing: 0.5px;
@@ -175,7 +175,7 @@ body .text-section .title {
 
 body .text-section a,
 body .text-section p {
-  font-size: 16px;
+  font-size: calc(20px * 0.7);
   text-align: left;
   font-weight: 200 !important;
   line-height: 1.4 !important;
@@ -200,14 +200,20 @@ body .text-section.hover--blue a:hover {
   color: #1ACADF;
 }
 
-@media screen and (min-width: 1000px) { 
+@media screen and (min-width: 900px) { 
   body .text-section .title {
-    font-size: 40px;
+    font-size: calc(42px * 0.8);
   }
 
   body .text-section a,
   body .text-section p {
-    font-size: 20px;
+    font-size: calc(20px * 0.8);
+  }
+
+  body .text-section {
+    padding: 100px !important;
+    padding-top: 70px !important;
+    max-width: 700px;
   }
 
   body .text-section.width--small {
@@ -217,12 +223,18 @@ body .text-section.hover--blue a:hover {
 
 @media screen and (min-width: 1200px) { 
   body .text-section .title {
-    font-size: 48px;
+    font-size: 42px;
   }
 
   body .text-section a,
   body .text-section p {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  body .text-section {
+    padding: 120px !important;
+    padding-top: 80px !important;
+    max-width: 840px;
   }
   
   body .text-section.width--small {
