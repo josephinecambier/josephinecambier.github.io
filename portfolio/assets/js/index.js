@@ -22,9 +22,13 @@ Reveal.initialize({
   ]
 });
 
+window.isMobile = /iphone|ipod|ipad|android|blackberry|opera mini|opera mobi|skyfire|maemo|windows phone|palm|iemobile|symbian|symbianos|fennec/i.test(navigator.userAgent.toLowerCase());
+
 Reveal.addEventListener('slidechanged', function(event) {
   var currentSlide = event.currentSlide;
-  var currentVideo = currentSlide.getElementsByClassName("vimeo-video")[0];
+  var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
+  var currentVideo = currentSlide.getElementsByClassName(classname)[0];
+  currentVideo && $(currentVideo).show();
   var vimeoID = currentVideo && currentVideo.dataset.vimeoId || 0;
   if (currentVideo && vimeoID > 0) {
     startVideo(vimeoID)
@@ -32,7 +36,8 @@ Reveal.addEventListener('slidechanged', function(event) {
 });
 
 var vimeoPlayers = [];
-var vimeoVideos = document.getElementsByClassName("vimeo-video");
+var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
+var vimeoVideos = document.getElementsByClassName(classname);
 for (let index = 0; index < vimeoVideos.length; index++) {
   var videoElement = vimeoVideos[index];
   var vimeoID = videoElement && videoElement.dataset.vimeoId || 0;
@@ -55,10 +60,16 @@ function loadPlayer(currentVideo, vimeoID) {
     byline: false,
   });
 
-  // console.log("vimeoPlayer: ", vimeoPlayer);
+  console.log("vimeoPlayer: ", vimeoPlayer);
   // console.log("vimeoID: ", vimeoID);
 
   vimeoPlayers[vimeoID] = vimeoPlayer;
+
+  if (window.isMobile) {
+    console.log("isMobile: ", currentVideo);
+  } else {
+    console.log("isDesktop: ", currentVideo);
+  }
 
   vimeoPlayer.ready().then(function() {
     // console.log("vimeoPlayer: ", vimeoPlayer);
