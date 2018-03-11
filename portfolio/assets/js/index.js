@@ -29,6 +29,9 @@ Reveal.addEventListener('slidechanged', function(event) {
   var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
   var currentVideo = currentSlide.getElementsByClassName(classname)[0];
   currentVideo && $(currentVideo).show();
+  if (window.isMobile) {
+    $(currentVideo).closest(".click-catcher").hide();
+  }
   var vimeoID = currentVideo && currentVideo.dataset.vimeoId || 0;
   if (currentVideo && vimeoID > 0) {
     startVideo(vimeoID)
