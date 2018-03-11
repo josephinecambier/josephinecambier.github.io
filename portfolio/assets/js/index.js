@@ -4,8 +4,11 @@ Reveal.initialize({
   controls: true,
   progress: true,
 
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
   // More info https://github.com/hakimel/reveal.js#dependencies
   dependencies: [
+    { src: '.reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
     { src: './reveal.js/plugin/markdown/marked.js' },
     { src: './reveal.js/plugin/markdown/markdown.js' },
     { src: './reveal.js/plugin/notes/notes.js', async: true },

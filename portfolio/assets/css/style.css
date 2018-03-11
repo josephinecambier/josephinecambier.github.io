@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
 }
 
+/**  
+  * Vimeo player styling
+  */
+
 .click-catcher {
   position: absolute;
   top: 0;
@@ -110,12 +114,21 @@ body .videobg iframe {
   border: 0 none;
 }
 
+/**  
+  * Custom text-area styling
+  */
+
 body .text-section {
   padding: 120px !important;
+  padding-top: 100px !important;
   max-width: 840px;
   line-height: 1.4 !important;
   letter-spacing: 0.5px;
   text-align: left;
+}
+
+body .text-section.text--white {
+  color: white !important;
 }
 
 body .text-section .title {
@@ -125,6 +138,7 @@ body .text-section .title {
   letter-spacing: 0.5px;
   margin: 0;
   margin-bottom: 6px;
+  color: white;
 }
 
 body .text-section a,
@@ -144,6 +158,14 @@ body .text-section a {
 
 body .text-section a:hover {
   color: gray;
+}
+
+body .text-section.hover--black a:hover {
+  color: black;
+}
+
+body .text-section.hover--blue a:hover {
+  color: #1ACADF;
 }
 
 @media screen and (min-width: 1000px) { 
