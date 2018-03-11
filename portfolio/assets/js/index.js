@@ -50,7 +50,7 @@ function loadPlayer(currentVideo, vimeoID) {
     autoplay: true, 
     autopause: false,
     background: false,
-    loop: loopEnabled,
+    loop: true,
     portrait: false,
     byline: false,
   });
