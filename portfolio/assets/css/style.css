@@ -120,11 +120,20 @@ body .videobg iframe {
 
 body .text-section {
   padding: 120px !important;
-  padding-top: 100px !important;
+  padding-top: 80px !important;
   max-width: 840px;
   line-height: 1.4 !important;
   letter-spacing: 0.5px;
   text-align: left;
+}
+
+body .text-section.padding--small {
+  padding: 60px !important;
+  padding-top: 30px !important;
+}
+
+body .text-section.width--small {
+  max-width: 450px;
 }
 
 body .text-section.text--white {
@@ -177,6 +186,10 @@ body .text-section.hover--blue a:hover {
   body .text-section p {
     font-size: 20px;
   }
+
+  body .text-section.width--small {
+    max-width: 500px;
+  }
 }
 
 @media screen and (min-width: 1200px) { 
@@ -187,5 +200,9 @@ body .text-section.hover--blue a:hover {
   body .text-section a,
   body .text-section p {
     font-size: 24px;
+  }
+  
+  body .text-section.width--small {
+    max-width: 600px;
   }
 }
