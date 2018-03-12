@@ -86,7 +86,7 @@ body {
 }
 
 .link {
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-bottom: 1px solid white;
 }
