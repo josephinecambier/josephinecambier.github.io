@@ -235,14 +235,24 @@ body .text-section.hover--blue a:hover {
   body .text-section p {
     font-size: 20px;
   }
+}
 
+@media screen and (min-width: 1400px) and (max-height: 799px) {
   body .text-section {
+    max-width: 940px !important;
+    padding: 100px !important;
+    padding-top: 70px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 800px) {  
+  body .text-section.width {
+    max-width: 840px !important;
     padding: 120px !important;
     padding-top: 80px !important;
-    max-width: 840px;
   }
   
   body .text-section.width--small {
-    max-width: 600px;
+    max-width: 600px !important;
   }
 }
