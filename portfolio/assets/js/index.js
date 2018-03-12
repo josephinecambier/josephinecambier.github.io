@@ -98,7 +98,8 @@ function startVideo(vimeoID) {
  */
 
 function videobgEnlarge() {
-  var vimeoVideos = document.getElementsByClassName("vimeo-video");
+  var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
+  var vimeoVideos = document.getElementsByClassName(classname);
   for (let index = 0; index < vimeoVideos.length; index++) {
     var videoElement = vimeoVideos[index];
 
