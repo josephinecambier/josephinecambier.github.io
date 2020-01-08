@@ -64,8 +64,34 @@ body {
 
 .reveal h1 {
   font-size: 50px;
-  text-align: center !important;
+  text-align: center;
   text-shadow: none;
+}
+
+.reveal h1.page-title {
+  text-align: left;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.reveal h1.page-subtitle {
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.4;
+  color: white;
+  word-wrap: break-word;
+}
+
+.reveal h1.page-title.light,
+.reveal h1.page-subtitle.light {
+  color: white;
+}
+
+.reveal h1.page-title.dark,
+.reveal h1.page-subtitle.dark {
+  color: black;
 }
 
 .reveal h2 {
@@ -80,16 +106,41 @@ body {
   font-size: 20px;
 }
 
-p.lead {
+.lead {
   position: absolute;
   display: block;
   text-align: left;
+  top: 20px;
   left: 20px;
   color: white;
-  top: 0px !important;
   font-weight: 200;
 }
 
+.lead.right {
+  top: 76px;
+  text-align: left;
+  max-width: 410px;
+  padding-right: 30px;
+}
+
+@media screen and (min-width: 900px) {
+  .lead.right {
+    left: unset;
+    top: 20px;
+    right: 20px;
+    text-align: right !important;
+    width: 380px;
+    padding-right: 0px;
+  }
+
+  .reveal h1.page-subtitle {
+    text-align: right;
+  }
+}
+
+p.lead {
+  top: 0;
+}
 
 /*********************************************
 * OTHER

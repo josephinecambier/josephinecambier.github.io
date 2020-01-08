@@ -29,33 +29,42 @@ Reveal.addEventListener('slidechanged', function(event) {
   var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
   var currentVideo = currentSlide.getElementsByClassName(classname)[0];
   currentVideo && $(currentVideo).show();
+
+  var loaderDiv = $(currentSlide).find(".loader-wrapper");
+  var otherLoaderDivs = $(".loader-wrapper").not(loaderDiv);
+
+  if (loaderDiv && currentVideo) {
+    otherLoaderDivs.hide()
+    loaderDiv.show();
+  }
+
   if (window.isMobile) {
     $(currentVideo).closest(".click-catcher").hide();
   }
+
   var vimeoID = currentVideo && currentVideo.dataset.vimeoId || 0;
   if (currentVideo && vimeoID > 0) {
-    startVideo(vimeoID)
+    startVideo(vimeoID, loaderDiv)
   }
 });
 
 var vimeoPlayers = [];
 var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
 var vimeoVideos = document.getElementsByClassName(classname);
+
 for (let index = 0; index < vimeoVideos.length; index++) {
   var videoElement = vimeoVideos[index];
   var vimeoID = videoElement && videoElement.dataset.vimeoId || 0;
+
   if (vimeoID > 0) {
-    loadPlayer(videoElement, vimeoID)
+    loadPlayer(videoElement, vimeoID);
   }
 }
 
-function loadPlayer(currentVideo, vimeoID) {
-  var loopEnabled = false;
-  var isReady = false;
-
+function loadPlayer(currentVideo, vimeoID, loaderDiv) {
   var vimeoPlayer = new Vimeo.Player(currentVideo, {
     id: vimeoID,
-    autoplay: false, 
+    autoplay: false,
     autopause: false,
     background: true,
     loop: true,
@@ -63,33 +72,41 @@ function loadPlayer(currentVideo, vimeoID) {
     byline: false,
   });
 
-  console.log("vimeoPlayer: ", vimeoPlayer);
+  // console.log("vimeoPlayer: ", vimeoPlayer);
   // console.log("vimeoID: ", vimeoID);
 
   vimeoPlayers[vimeoID] = vimeoPlayer;
 
   if (window.isMobile) {
-    console.log("isMobile: ", currentVideo);
+    // console.log("isMobile: ", currentVideo);
   } else {
-    console.log("isDesktop: ", currentVideo);
+    // console.log("isDesktop: ", currentVideo);
   }
 
   vimeoPlayer.ready().then(function() {
     // console.log("vimeoPlayer: ", vimeoPlayer);
     vimeoPlayer.setLoop(true).then(function(loop) {
       loopEnabled = loop;
-      console.log("loopEnabled: ", loop); 
+      // console.log("loopEnabled: ", loop);
     }).catch(function(error) {
-      console.log("loop error: ", error);
+      // console.log("loop error: ", error);
     });
   });
 }
 
-function startVideo(vimeoID) {
+function startVideo(vimeoID, loaderDiv) {
   videobgEnlarge();
-  if (vimeoPlayers[vimeoID]) {
+
+  var currentVideo = vimeoPlayers[vimeoID];
+
+  if (currentVideo) {
     // console.log("vimeoPlayers[vimeoID]: ", vimeoPlayers[vimeoID]);
-    vimeoPlayers[vimeoID].play();
+    currentVideo.play();
+
+    currentVideo.on('play', function() {
+      console.log('played the video!');
+      loaderDiv.hide();
+    });
   }
 }
 
@@ -100,6 +117,7 @@ function startVideo(vimeoID) {
 function videobgEnlarge() {
   var classname = window.isMobile ? "vimeo-video-mobile" : "vimeo-video-desktop";
   var vimeoVideos = document.getElementsByClassName(classname);
+
   for (let index = 0; index < vimeoVideos.length; index++) {
     var videoElement = vimeoVideos[index];
 
