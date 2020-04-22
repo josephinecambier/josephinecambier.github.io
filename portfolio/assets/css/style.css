@@ -14,6 +14,23 @@ body {
   overflow-x: hidden;
 }
 
+.introTitle {
+  font-size: 40px;
+}
+
+.introNameContainer {
+  margin-top: 40px !important;
+}
+
+.introName {
+  display: inline-block;
+  text-align: center;
+  height: 36px;
+  width: 300px;
+  background: url("../gfx/josephine.svg") no-repeat center center;
+  text-indent: -9999px;
+}
+
 .strikethrough {
   position: relative;
 }

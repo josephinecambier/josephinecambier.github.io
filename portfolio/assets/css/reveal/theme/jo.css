@@ -82,6 +82,7 @@ body {
   line-height: 1.4;
   color: white;
   word-wrap: break-word;
+  display: none;
 }
 
 .reveal h1.page-title.light,
