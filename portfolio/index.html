@@ -36,10 +36,18 @@
     link.href = window.location.search.match(/print-pdf/gi) ? './reveal.js/css/print/pdf.css?v=0.0.8' : './reveal.js/css/print/paper.css?v=0.0.8';
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-25719284-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-25719284-1');
+  </script>
 </head>
-
 <body>
-
   <div class="reveal">
     <div class="slides">
       <!-- Intro -->
